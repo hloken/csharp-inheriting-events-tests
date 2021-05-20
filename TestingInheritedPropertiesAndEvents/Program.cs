@@ -14,7 +14,7 @@ namespace TestingInheritedPropertiesAndEvents
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public int Subscribers => PropertyChanged?.GetInvocationList().Length ?? 0;
+        public new int Subscribers => PropertyChanged?.GetInvocationList().Length ?? 0;
     }
 
     public class DerivedWithNew : BaseWithoutVirtual
@@ -28,14 +28,14 @@ namespace TestingInheritedPropertiesAndEvents
     {
         public virtual event PropertyChangedEventHandler PropertyChanged;
 
-        public virtual int Subscribers => PropertyChanged?.GetInvocationList().Length ?? 0;
+        public int Subscribers => PropertyChanged?.GetInvocationList().Length ?? 0;
     }
 
     public class DerivedFromBaseWithVirtualWithoutNew : BaseWithVirtual
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public int Subscribers => PropertyChanged?.GetInvocationList().Length ?? 0;
+        public new int Subscribers => PropertyChanged?.GetInvocationList().Length ?? 0;
     }
 
     public class DerivedFromBaseWithVirtualWithNew : BaseWithVirtual
@@ -49,7 +49,7 @@ namespace TestingInheritedPropertiesAndEvents
     {
         public override event PropertyChangedEventHandler PropertyChanged;
 
-        public override int Subscribers => PropertyChanged?.GetInvocationList().Length ?? 0;
+        public new int Subscribers => PropertyChanged?.GetInvocationList().Length ?? 0;
     }
 
     class Program
