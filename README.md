@@ -8,4 +8,6 @@ Code thats tests different permuations of inheriting Event-implementations from 
 2. Test-cases for base-class with *virtual* public event:
   a. Derived class defines same event => result is 2 different events with separate subscriber lists, produces compiler warning
   b. Derived class defines same event with *new* keyword => result is 2 different events with separate subscriber lists, no compiler warning
-  c. Derived class defines same event with *override* keyword => result is 1 single event with 1 subscriber list, no compiler warning
+  c. Derived class defines same event with *override* keyword => result is 2 different events with separate subscriber lists, no compiler warning
+
+It does not look like implementing events through inheritance works in normal use-cases I can think of. Better to implement event in base-class and create protected method that derived classes can use for notifying subscribers.
